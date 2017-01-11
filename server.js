@@ -8,7 +8,6 @@ var url = require('url')
 var dotenv = require('dotenv')
 dotenv.load()
 var accessKey = process.env.BING_KEY
-var dbloc = process.env.MONGOLAB_URI
 
 var Bing = require('node-bing-api')({'accKey': accessKey})
 
@@ -24,8 +23,8 @@ var router = express.Router()
 var searchTerm = ''
 var offset = 5
 var output = []
-//var dburl = process.env.MONGOLAB_URI
-var dburl = 'mongodb://localhost:27017/imgsearches'
+var dburl = process.env.MONGOLAB_URI
+//var dburl = 'mongodb://localhost:27017/imgsearches'
 
 mongoose.connect(dburl)
 
