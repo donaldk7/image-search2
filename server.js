@@ -23,7 +23,7 @@ var router = express.Router()
 var searchTerm = ''
 var offset = 5
 var output = []
-var dburl = process.env.MONGOLAB_URI
+var dburl = process.env.MONGODB_URI
 //var dburl = 'mongodb://localhost:27017/imgsearches'
 
 mongoose.connect(dburl)
