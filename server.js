@@ -5,7 +5,12 @@ var mongoose = require('mongoose')
 var Search = require('./models/imgsearch')
 var path = require('path')
 var url = require('url')
-var Bing = require('node-bing-api')({'accKey': 'fa77ac20625f42c78547f9325007c9fb'})
+var dotenv = require('dotenv')
+dotenv.load()
+var accessKey = process.env.BING_KEY
+var dbloc = process.env.MONGOLAB_URI
+
+var Bing = require('node-bing-api')({'accKey': accessKey})
 
 
 app.use(express.static(path.join(__dirname, 'public')))
@@ -19,8 +24,10 @@ var router = express.Router()
 var searchTerm = ''
 var offset = 5
 var output = []
+//var dburl = process.env.MONGOLAB_URI
+var dburl = 'mongodb://localhost:27017/imgsearches'
 
-mongoose.connect('mongodb://localhost:27017/imgsearches')
+mongoose.connect(dburl)
 
 router.use(function(req, res, next) {
     // do logging
