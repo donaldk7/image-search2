@@ -5,8 +5,8 @@ var mongoose = require('mongoose')
 var Search = require('./models/imgsearch')
 var path = require('path')
 var url = require('url')
-var dotenv = require('dotenv')
-dotenv.load()
+//var dotenv = require('dotenv')    for cloud9
+//dotenv.load()
 var accessKey = process.env.BING_KEY
 
 var Bing = require('node-bing-api')({'accKey': accessKey})
